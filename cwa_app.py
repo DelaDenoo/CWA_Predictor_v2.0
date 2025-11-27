@@ -138,6 +138,9 @@ if menu == "Grade Calculator":
 
 
     def predict_scores_cvxpy(courses, current_total_credits, current_cwa, target_cwa):
+        if not courses or len(courses)==0:
+            return [], "No courses provided"
+        
         credits = np.array([float(c["credit"]) for c in courses])
         n = len(credits)
         
